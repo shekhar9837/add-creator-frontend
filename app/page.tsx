@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react"
 import HeroPage from "@/components/HeroPage";
 import Navbar from "@/components/Navbar";
+import VideoCards from "@/components/VideoCards";
+import {videos} from "@/constant/heropageVideos"
+
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,6 +20,7 @@ export default function Home() {
       <main>
 
         <HeroPage/>
+
        
 
         {/* Features Section - Cyberpunk Gradient */}
