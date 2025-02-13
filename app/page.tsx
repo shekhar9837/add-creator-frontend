@@ -1,101 +1,169 @@
-import Image from "next/image";
+'use client'
+import { useEffect, useState } from "react";
+import { motion } from "motion/react"
+import HeroPage from "@/components/HeroPage";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isVisible, setIsVisible] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <div className="min-h-screen">
+      {/* <Navbar/> */}
+      <main>
+
+        <HeroPage/>
+       
+
+        {/* Features Section - Cyberpunk Gradient */}
+        <section className="py-24 bg-gradient-to-r from-gray-900 via-gray-900 to-blue-900">
+          <div className="container mx-auto px-6">
+            <h2 className="text-4xl font-bold text-center mb-16 text-white">
+              Features that empower your creativity
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "AI-Powered Design",
+                  description: "Create professional designs in seconds with our advanced AI technology",
+                },
+                {
+                  title: "Smart Templates",
+                  description: "Access thousands of customizable templates for any project",
+                },
+                {
+                  title: "Real-time Collaboration",
+                  description: "Work together seamlessly with your team in real-time",
+                },
+              ].map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="glass-card p-8 rounded-2xl hover-lift"
+                >
+                  <h3 className="text-xl font-semibold mb-4 text-white">{feature.title}</h3>
+                  <p className="text-gray-300">{feature.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section - Midnight Gradient */}
+        <section className="py-24 bg-gradient-to-br from-gray-900 via-slate-900 to-zinc-900">
+          <div className="container mx-auto px-6">
+            <h2 className="text-4xl font-bold text-center mb-16 text-white">
+              Simple, transparent pricing
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {[
+                {
+                  name: "Starter",
+                  price: "Free",
+                  features: ["Basic templates", "5 exports per month", "Community support"],
+                },
+                {
+                  name: "Pro",
+                  price: "$29/month",
+                  features: ["All templates", "Unlimited exports", "Priority support"],
+                },
+                {
+                  name: "Enterprise",
+                  price: "Custom",
+                  features: ["Custom templates", "API access", "Dedicated support"],
+                },
+              ].map((plan, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="glass-card p-8 rounded-2xl hover-lift"
+                >
+                  <h3 className="text-xl font-semibold mb-2 text-white">{plan.name}</h3>
+                  <p className="text-3xl font-bold mb-6 text-white">{plan.price}</p>
+                  <ul className="space-y-4">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-center text-gray-300">
+                        <span className="mr-2">✓</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="w-full mt-8 px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors">
+                    Get Started
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Footer - Dark Night Gradient */}
+        <footer className="bg-gradient-to-b from-black to-gray-900 py-12 border-t border-white/10">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div>
+                <h4 className="font-semibold mb-4 text-white">Product</h4>
+                <ul className="space-y-2">
+                  {["Features", "Pricing", "Templates", "Updates"].map((item) => (
+                    <li key={item}>
+                      <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4 text-white">Company</h4>
+                <ul className="space-y-2">
+                  {["About", "Careers", "Blog", "Legal"].map((item) => (
+                    <li key={item}>
+                      <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4 text-white">Resources</h4>
+                <ul className="space-y-2">
+                  {["Documentation", "Help Center", "Community", "Contact"].map((item) => (
+                    <li key={item}>
+                      <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4 text-white">Connect</h4>
+                <ul className="space-y-2">
+                  {["Twitter", "LinkedIn", "Instagram", "Facebook"].map((item) => (
+                    <li key={item}>
+                      <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
+              <p>&copy; 2024 Creatify. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
