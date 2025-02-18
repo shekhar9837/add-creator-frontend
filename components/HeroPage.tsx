@@ -14,14 +14,14 @@ const HeroPage = () => {
   }, []);
 
   return (
-    <section className="py-32 bg-gradient-to-br from-gray-900 via-slate-900 to-neutral-900">
+    <section className="py-32 bg-black">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
         transition={{ duration: 0.8 }}
         className="text-center max-w-4xl mx-auto px-6"
       >
-        <p className="text-6xl inline-block font-bold leading-tight  text-white">
+        <p className="text-6xl inline-block font-bold leading-tight text-white ">
           <span className="block">Grow your Product</span>
           <span className="block">with AI-Powered Video Ads</span>
         </p>
@@ -29,7 +29,7 @@ const HeroPage = () => {
           Create and test marketing videos at scale to maximize your ROI.
         </p>
         <motion.button
-          className="px-8 py-4 my-6 inline-flex gap-2 items-center bg-pink-900 text-white rounded-lg text-sm font-medium hover:bg-pink-950  transition-colors hover:shadow-lg"
+          className="px-8 py-4 my-6 inline-flex gap-2 items-center bg-purple-700 text-white rounded-lg text-sm font-medium hover:bg-purple-800  transition-colors hover:shadow-lg"
           whileHover="hover"
         >
           Generate your first ad for free{" "}

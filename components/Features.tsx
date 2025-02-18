@@ -42,15 +42,15 @@ export const Features = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-r from-gray-900 via-gray-900 to-blue-900">
-      <div className="container mx-auto px-12 w-full max-w-7xl">
+    <section className="py-24 bg-black">
+      <div className="container mx-auto px-6 md:px-12 w-full max-w-7xl">
         <h2 className="text-4xl font-bold text-center mb-16 text-white">
           Features that empower your creativity
         </h2>
-        <div className="grid grid-rows-2   w-full mx-auto text-white">
-          <div className="w-full  grid grid-cols-2  gap-2">
+        <div className="grid md:grid-rows-2   w-full mx-auto text-white">
+          <div className="w-full  grid grid-cols-1 md:grid-cols-2 mb-2 gap-2">
             {featuresList.map((item, key) => (
-              <div className=" h-[14rem] p-8 relative rounded-2xl bg-neutral-950">
+              <div className=" h-[14rem] p-8 relative rounded-2xl   bg-neutral-800 ">
                 {/* {item.image && (
                     <div className="mb-4"> */}
                 {/* <img
@@ -66,16 +66,16 @@ export const Features = () => {
             ))}
           </div>
 
-          <div className="w-full  grid grid-cols-4 gap-2">
+          <div className="w-full  grid grid-cols-1 md:grid-cols-4 gap-2 ">
             {features1.map((item, key) => (
-              <div className="rounded-2xl h-full p-8  bg-neutral-950 ">
+              <div className="rounded-2xl h-full p-8   bg-neutral-800 ">
                 <h4 className="text-2xl font-semibold mb-4">{item.title}</h4>
                 <p className="text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
-        <CompatibilityComponent/>
+        {/* <CompatibilityComponent/> */}
 
       </div>
 

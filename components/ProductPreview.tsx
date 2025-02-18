@@ -1,34 +1,38 @@
 import React from "react";
+import HeroVideoDialog from "./magicui/hero-video-dialog";
 
 const ProductPreview = () => {
   return (
-    <div className="flex items-center justify-center flex-col  bg-gradient-to-br from-gray-900 via-slate-900 to-neutral-900">
+    <div className="px-6 md:px-6 flex items-center justify-center flex-col  bg-black">
       <div className="text-white mb-16">
-        <h1 className="text-4xl font-bold text-center">
+        <h1 className="text-3xl md:text-4xl font-semibold text-center capitalize">
           generate high permorming videos with one single click{" "}
         </h1>
-        <p className=" text-center mt-4">
+        <p className=" text-sm md:text-md text-center mt-4">
           Simply enter a product link or upload your own visuals and
           descriptions, and Creatify will do the rest.
           </p>
-          <p className="text-center mt-4">
+          <p className="text-sm md:text-md  text-center mt-4">
           Don't let limited marketing resources hold you back from success.{" "}
         </p>
       </div>
 
-      <div>
-        <iframe
-        className="rounded-2xl"
-          width="925"
-          height="520"
-          src="https://www.youtube.com/embed/4cCLgUtq_0E"
-          title="NEW AI Video Ads and AI Ad Intelligence Generates HUGE Marketing ROI! Creatify 3.0 Launch!"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
+      <div className="relative max-w-4xl">
+      <HeroVideoDialog
+        className="block dark:hidden"
+        animationStyle="top-in-bottom-out"
+        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+        thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+        thumbnailAlt="Hero Video"
+      />
+      <HeroVideoDialog
+        className="hidden dark:block"
+        animationStyle="top-in-bottom-out"
+        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+        thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+        thumbnailAlt="Hero Video"
+      />
+    </div>
     </div>
   );
 };
