@@ -1,14 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "motion/react";
-import CompatibilityComponent from "./CompatibilityComponent";
+'use client';
+import React from "react";
 
 export const Features = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   const featuresList = [
     {
       title: "AI Video Ads",
@@ -50,7 +43,7 @@ export const Features = () => {
         <div className="grid md:grid-rows-2   w-full mx-auto text-white">
           <div className="w-full  grid grid-cols-1 md:grid-cols-2 mb-2 gap-2">
             {featuresList.map((item, key) => (
-              <div className=" h-[14rem] p-8 relative rounded-2xl   bg-neutral-800 ">
+              <div key={key} className=" h-[14rem] p-8 relative rounded-2xl   bg-neutral-800 ">
                 {/* {item.image && (
                     <div className="mb-4"> */}
                 {/* <img
@@ -68,7 +61,7 @@ export const Features = () => {
 
           <div className="w-full  grid grid-cols-1 md:grid-cols-4 gap-2 ">
             {features1.map((item, key) => (
-              <div className="rounded-2xl h-full p-8   bg-neutral-800 ">
+              <div key={key} className="rounded-2xl h-full p-8   bg-neutral-800 ">
                 <h4 className="text-2xl font-semibold mb-4">{item.title}</h4>
                 <p className="text-sm">{item.desc}</p>
               </div>

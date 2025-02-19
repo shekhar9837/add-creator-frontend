@@ -1,12 +1,6 @@
-import {
-  ArrowBigDownDash,
-  ArrowBigRight,
-  CheckCheckIcon,
-  CheckIcon,
-} from "lucide-react";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 
 const Footer = () => {
   return (
@@ -21,7 +15,7 @@ const Footer = () => {
             <p className="text-md font-normal text-white mt-2">
               Our experienced video designers, enhanced by AI tools, are
               dedicated to creating a wide range of short video ads customized
-              for your brand’s requirements. Enjoy unlimited video ad requests
+              for your brand&apos;s requirements. Enjoy unlimited video ad requests
               at a fixed monthly rate.
             </p>
           </div>
@@ -31,7 +25,7 @@ const Footer = () => {
 
               className="bg-white w-full md:w-fit flex items-center justify-center gap-2  text-purple-700 px-8 py-3 rounded-lg"
             >
-              let's talk
+              let&apos;s talk
               <motion.span
                 variants={{ hover: { x: 8 } }}
                 transition={{ type: "ease", stiffness: 300 }}

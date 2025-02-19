@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { motion } from "motion/react";
+'use client';
+
+import * as motion from "motion/react-client";
 import { BiCheck } from "react-icons/bi";
 
 
@@ -9,7 +10,30 @@ const fadeInUp = {
   exit: { opacity: 0, y: -20 }
 };
 
-const PricingCard = ({ plan, isPopular, delay }: any) => {
+
+interface NewType {
+  plan: {
+    type: string;
+    price: string;
+    oldPrice?: string;
+    buttonText: string;
+    isPopular?: boolean;
+    description?: string;
+    sections: {
+      title: string;
+      features: string[];
+    }[];
+  };
+  isPopular?: boolean;
+  delay: number;
+}
+
+interface PlanSection {
+  title: string;
+  features: string[];
+}
+
+const PricingCard = ({ plan, isPopular, delay }: NewType) => {
   return (
     <motion.div
       initial="initial"
@@ -49,7 +73,7 @@ const PricingCard = ({ plan, isPopular, delay }: any) => {
         )}
 
         <div className="space-y-6">
-          {plan.sections.map((section: any, idx: number) => (
+          {plan.sections.map((section: PlanSection, idx: number) => (
             <div key={idx}>
               <h4 className="text-white font-medium mb-3">{section.title}</h4>
               <ul className="space-y-3 ">
@@ -69,12 +93,6 @@ const PricingCard = ({ plan, isPopular, delay }: any) => {
 };
 
 const Pricing = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   const plans = [
     {
       type: "FREE",

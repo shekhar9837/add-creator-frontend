@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    images: {
+        domains: ['startup-template-sage.vercel.app'],
+    },
+};
 
 export default nextConfig;

@@ -13,7 +13,7 @@ const ProductPreview = () => {
           descriptions, and Creatify will do the rest.
           </p>
           <p className="text-sm md:text-md  text-center mt-4">
-          Don't let limited marketing resources hold you back from success.{" "}
+          Don&apos;t let limited marketing resources hold you back from success.{" "}
         </p>
       </div>
 

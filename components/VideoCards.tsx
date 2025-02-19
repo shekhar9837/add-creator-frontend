@@ -6,7 +6,7 @@ interface VideoCardProps {
     videoUrl: string;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ title, description, videoUrl }) => {
+const VideoCard: React.FC<VideoCardProps> = ({  videoUrl }) => {
     return (
         <div className="video-card w-[250px] h-[444px] flex-shrink-0 rounded-lg overflow-hidden bg-black">
             <video 
@@ -23,7 +23,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ title, description, videoUrl }) =
 
 const VideoCards: React.FC<{ videos: VideoCardProps[] }> = ({ videos }) => {
     return (
-        <div className="video-cards flex gap-4 overflow-x-auto p-4 scrollbar-hide">
+        <div className="video-cards flex gap-4 overflow-x-auto p-4 custom-scrollbar">
             {videos.map((video, index) => (
                 <VideoCard
                     key={index}

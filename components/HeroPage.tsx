@@ -1,7 +1,7 @@
+'use client';
+
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { BiArrowFromLeft } from "react-icons/bi";
-import { BsArrow90DegRight } from "react-icons/bs";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import VideoCards from "./VideoCards";
 import { videos } from "@/constant/heropageVideos";
@@ -21,11 +21,11 @@ const HeroPage = () => {
         transition={{ duration: 0.8 }}
         className="text-center max-w-4xl mx-auto px-6"
       >
-        <p className="text-6xl inline-block font-bold leading-tight text-white ">
+        <p className="text-4xl md:text-6xl inline-block font-bold leading-tight text-white ">
           <span className="block">Grow your Product</span>
           <span className="block">with AI-Powered Video Ads</span>
         </p>
-        <p className="text-md text-gray-300 mb-8">
+        <p className="text-sm md:text-md text-gray-300 mt-2 mb-4 md:mb-8">
           Create and test marketing videos at scale to maximize your ROI.
         </p>
         <motion.button
